@@ -1,0 +1,66 @@
+.message-scroll-wrapper{
+    overflow:auto;
+    border: 1px solid #ddd;
+    border-left: none;
+    margin: 0 auto;
+    height: 300px;
+}
+
+.center {
+	text-align: center;
+}
+
+.trade-content-title {
+	margin: 0.5em 0 0;
+}
+
+.trade-content-subtitle {
+	margin: 0;
+}
+
+.average-rate {
+	margin-left: 0.5em;
+}
+
+.average-rate.plus{
+	color:red;
+}
+
+.average-rate.minus{
+	color:blue;
+}
+
+.buy-message {
+	border-left: 6px solid blue;
+}
+
+.sell-message {
+	border-left: 6px solid red;
+}
+
+.trade-message:not(:last-child) {
+	border-bottom: 1px solid #ddd;
+}
+
+
+.footer {
+    background: #111;
+    color: #888;
+    text-align: center;
+}
+    .footer a {
+        color: #ddd;
+    }
+
+.l-box {
+	padding: 0.5em 2em;
+}
+
+
+.pure-menu.pure-menu-horizontal > ul {
+    height: auto; /* reset pure's value */
+    top: auto; /* reset pure's value */
+    min-height: 2.4em;
+    bottom: 0;
+    border-bottom: 0px solid #b7b7b7;
+}

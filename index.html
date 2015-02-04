@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your page title</title>
+
+    <script src="./js/angular.min.js"></script>
+    <link rel="stylesheet" href="./css/pure-min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/modal.css">
+
+
+    <script>
+    	var stockMain = angular.module('StockMain',[]);
+
+    	stockMain.controller('StockMainCtrl', ['$scope', 'tradeInfo', function($scope, tradeInfo){
+    		
+    		$scope.menulist = ['Home', '직장인', '주부', '노후설계'];
+    		$scope.tradeInfo = tradeInfo;
+
+
+    	}]);
+
+    	stockMain.factory('tradeInfo',function(){
+    		var info = {
+    			title : 'Home',
+    			startDate : '2015-01-01',
+    			endDate : '2015-01-08',
+    			averageRate : '15%',
+    		};
+
+    		var message = {
+    			head : '',
+    			date : '',
+    			text : '',
+    		}
+
+    		return{
+    			setTitle : function(title){
+	    			info.title = title;
+	    		},
+	    		getInfo : function(){
+	    			return info;
+	    		},
+	    		setMessageHeader : function(head){
+	    			message.head = head;
+	    		},
+	    		setMessageDate : function(date){
+	    			message.date = date;
+	    		},
+	    		setMessageText : function(text){
+	    			message.text = text;
+	    		},
+	    		getMessage : function(){
+	    			return message;
+	    		}
+    		}
+
+    	});
+
+
+
+    </script>
+
+</head>
+
+<body>
+	<div ng-app="StockMain" ng-controller="StockMainCtrl">
+
+		<div id="fixed-menu" class="pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-open">
+			<ul>
+		    	<li ng-repeat="menu in menulist"><a ng-href="#" ng-click="tradeInfo.setTitle(menu)">{{menu}}</a></li>
+		    </ul>
+		</div>
+		
+		<div class="pure-menu pure-menu-open pure-menu-responsive pure-menu-horizontal">		    
+		    <ul>
+		    	<li ng-repeat="menu in menulist"><a ng-href="#" ng-click="tradeInfo.setTitle(menu)">{{menu}}</a></li>
+		    </ul>
+		</div>
+		
+		<div class="pure-g">
+			<div class="pure-u-1"> 
+				<h1 class="pure-u-1 trade-content-title">{{tradeInfo.getInfo().title}}</h1>			
+				<p class="pure-u-3-5 trade-content-subtitle"><span class="search-date">{{tradeInfo.getInfo().startDate}} ~ {{tradeInfo.getInfo().endDate}}</span><span class="average-rate plus">{{tradeInfo.getInfo().averageRate}}</span></p>
+			</div>		
+		</div>
+
+		<div class="message-scroll-wrapper">
+		
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+			</a>
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+				<p class="pure-u-1-5">매수</p>
+				<p class="pure-u-1-5">2015-01-22</p>
+				<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+			</a>
+
+			<a href="#modal" class="pure-g sell-message trade-message">			
+				<p class="pure-u-1-5">매도</p>
+				<p class="pure-u-1-5">2015-01-23</p>
+				<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+			</a>
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+				<p class="pure-u-1-5">매수</p>
+				<p class="pure-u-1-5">2015-01-22</p>
+				<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+			</a>
+
+			<a href="#modal" class="pure-g sell-message trade-message">			
+				<p class="pure-u-1-5">매도</p>
+				<p class="pure-u-1-5">2015-01-23</p>
+				<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+			</a>
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+				<p class="pure-u-1-5">매수</p>
+				<p class="pure-u-1-5">2015-01-22</p>
+				<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+			</a>
+
+			<a href="#modal" class="pure-g sell-message trade-message">			
+				<p class="pure-u-1-5">매도</p>
+				<p class="pure-u-1-5">2015-01-23</p>
+				<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+			</a>
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+				<p class="pure-u-1-5">매수</p>
+				<p class="pure-u-1-5">2015-01-22</p>
+				<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+			</a>
+
+			<a href="#modal" class="pure-g sell-message trade-message">			
+				<p class="pure-u-1-5">매도</p>
+				<p class="pure-u-1-5">2015-01-23</p>
+				<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+			</a>
+
+			<a href="#modal" class="pure-g buy-message trade-message">			
+				<p class="pure-u-1-5">매수</p>
+				<p class="pure-u-1-5">2015-01-22</p>
+				<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+			</a>
+
+			<a href="#modal" class="pure-g sell-message trade-message">			
+				<p class="pure-u-1-5">매도</p>
+				<p class="pure-u-1-5">2015-01-23</p>
+				<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+			</a>
+
+	</div>
+
+	<div class="footer l-box">
+	    <p>
+	        <a href="#">링크</a><span>  바닥글.</span>
+	    </p>
+	</div>
+
+
+	<div id="modal">
+		<div class="modal-content">
+			<div class="header">
+				<h2>매수</h2>
+			</div>
+			<div class="copy">
+				<p>웹젠 30500원에 매수 추천해드려요~^^</p>
+			</div>
+			<div class="cf footer">
+				<a href="#" class="btn">닫기</a>
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</div>
+
+
+	<!--
+	<div class="pure-menu pure-menu-open pure-menu-responsive pure-menu-horizontal center">
+	    <ul>
+	        <li class="pure-menu-selected"><a href="#">Home</a></li>
+	        <li><a href="#">직장인</a></li>
+	        <li><a href="#">주부</a></li>
+	        <li><a href="#">퇴직자</a></li>
+	        <li><a href="#">가치투자</a></li>
+	    </ul>
+	</div>
+
+	<div class="pure-g">
+		<div class="pure-u-1">
+			<h1 class="pure-u-1 trade-content-title">직장인</h1>			
+			<p class="pure-u-3-5 trade-content-subtitle"><span class="search-date">2015-01-22~2015-01-28</span><span class="average-rate plus">15%</span></p>
+		</div>		
+	</div>
+
+	<div class="message-scroll-wrapper">
+		
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g sell-message trade-message">			
+			<p class="pure-u-1-5">매도</p>
+			<p class="pure-u-1-5">2015-01-23</p>
+			<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+		</a>
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g sell-message trade-message">			
+			<p class="pure-u-1-5">매도</p>
+			<p class="pure-u-1-5">2015-01-23</p>
+			<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+		</a>
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g sell-message trade-message">			
+			<p class="pure-u-1-5">매도</p>
+			<p class="pure-u-1-5">2015-01-23</p>
+			<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+		</a>
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g sell-message trade-message">			
+			<p class="pure-u-1-5">매도</p>
+			<p class="pure-u-1-5">2015-01-23</p>
+			<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+		</a>
+
+		<a href="#modal" class="pure-g buy-message trade-message">			
+			<p class="pure-u-1-5">매수</p>
+			<p class="pure-u-1-5">2015-01-22</p>
+			<p class="pure-u-3-5">웹젠 30500원에 매수 추천해드려요~^^</p>	
+		</a>
+
+		<a href="#modal" class="pure-g sell-message trade-message">			
+			<p class="pure-u-1-5">매도</p>
+			<p class="pure-u-1-5">2015-01-23</p>
+			<p class="pure-u-3-5">웹젠 32000원에 매도하세요~</p>	
+		</a>
+
+	</div>
+
+	<div id="modal">
+		<div class="modal-content">
+			<div class="header">
+				<h2>매수</h2>
+			</div>
+			<div class="copy">
+				<p>웹젠 30500원에 매수 추천해드려요~^^</p>
+			</div>
+			<div class="cf footer">
+				<a href="#" class="btn">닫기</a>
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</div>
+-->
+
+
+</body>
+</html>
